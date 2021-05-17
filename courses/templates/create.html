@@ -1,0 +1,24 @@
+{% extends './base.html' %}
+
+
+{%load static %}
+
+
+{% block content %}
+<h1>add new student</h1>
+<form method="post" class="mt-4">
+{% csrf_token %}
+<!--    <input type="text" name="fname" placeholder="fname"/><br>-->
+<!--  <input type="text" name="lname" placeholder="lname"/><br>-->
+<!--  <input type="number" name="age" placeholder="age"/><br>-->
+<!--  <input type="text" name="student_track" placeholder="student_track"/><br>-->
+{{form.as_p}}
+<center>
+     <input type="submit" class="btn btn-primary">
+      <input type="clear" value="clear" class="btn btn-danger">
+</center>
+
+
+</form>
+
+{% endblock %}

@@ -1,17 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <ul>
-  
-    {% for book in books %}
-         <ul><a href="{% url 'book' book.id %}">{{book.name}}</a></ul> 
+{% extends './base.html' %}
+
+
+{%load static %}
+
+
+{% block content %}
+<h1 class="text-center">all students</h1>
+<a class="btn btn-primary" href="create">create</a><br><br>
+<table class="table table-dark table-striped">
+
+            <tr>
+
+                <td>fname</td>
+                <td>lname</td>
+                <td>age</td>
+
+                <td>student_track</td>
+                <td>action</td>
+
+            </tr>
+            <tr>
+              {% for student in students %}
+                <tr>
+
+         <td><a href="{{student.id}}">{{student.fname}}</a></td>
+         <td>{{student.lname}}</td>
+         <td>{{student.age}}</td>
+<!--             <td>{{student.id}}</td>-->
+
+         <td>{{student.student_track}}</td>
+
+    <td>
+        <form method="delete" action="delete/{{student.id}}" style="display:inline-block;">
+            <input class="btn btn-primary" type="submit" value="Delete"/>
+
+        </form>
+
+               <form method="edit" action="edit/{{student.id}}" style="display:inline-block">
+                        <input class="btn btn-danger" type="submit" value="edit"/>
+
+        </form>
+    </td>
+<!--                <td><button class="btn btn-primary"><a href="">delete</a></button> <button class="btn btn-primary">edit</button></td>-->
+
+           </tr>
+
+
     {% endfor %}
+
+
  
-</ul>
-</body>
-</html>
+</table>
+{% endblock %}
+

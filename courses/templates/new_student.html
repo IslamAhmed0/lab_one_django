@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>add new student</h1>
+<form method="post">{% crf_token %}
+  {{student_form.as_p}}
+  <button type="submit" class="btn">save</button>
+    <button type="submit" class="btn">clear</button>
+
+</form>
+</body>
+</html>

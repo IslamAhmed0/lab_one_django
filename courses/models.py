@@ -13,6 +13,8 @@ class Student(models.Model):
     fname = models.CharField(max_length = 50, null=True, default='someone')
     lname = models.CharField(max_length=50, null=True, default='someone')
     age = models.IntegerField()
+    email = models.EmailField()
+    img = models.ImageField()
     #relastion with track
     student_track = models.ForeignKey(Track, on_delete=models.CASCADE)
 

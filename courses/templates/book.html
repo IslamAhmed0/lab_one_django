@@ -1,24 +1,43 @@
 
+
+{% extends './base.html' %}
+
 {%load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-    <body>
 
-        <ul>
 
-            <li id="bookname">{{book.name}}</li>
-            <li>Author: {{book.Author}}</li>
-            <li>"Details about the book : {{book.details}}"</li>
+
+{% block content %}
+                <img src="{% static 'images/one.jpeg' %}" style="height: 200px; width:100%">
+
+<h1 class="text-center">hello my student : {{student.fname}}{{student.lname}}</h1>
+<table class="table table-dark table-striped">
+            <tr>
+                                <td>id</td>
+
+                <td>fname</td>
+                <td>lname</td>
+                <td>student_track</td>
+                <td>img</td>
+
+            </tr>
+            <tr>
+
+            <td> {{student.id}}</td>
+
+            <td id="bookname">{{student.fname}}</td>
+            <td> {{student.lname}}</td>
+            <td>{{student.student_track}}</td>
+            <td><img src="{{ student.img.url }}"/></td>
+
             <br>
 
+            </tr>
 
-            <img src= "{% static 'images/'%}{{ book.image }}" style="width:200px; height: 200px; ;">
-        </ul>
-    </body>
-</html>
+
+
+        </table>
+<a href="/courses">back</a>
+{% endblock %}
+
+
+
